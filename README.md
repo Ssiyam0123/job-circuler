@@ -41,7 +41,7 @@ SoloSphere is a modern, responsive job circular and bidding platform. It allows 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Ssiyam0123/job-circuler.git
+   git clone https://github.com/siyam-io/job-circuler.git
    cd job-circuler
    ```
 
