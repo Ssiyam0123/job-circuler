@@ -11,12 +11,19 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "https://solo-shaper.web.app",
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "http://localhost:5175"
-    ],
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        "https://solo-shaper.web.app",
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://localhost:5175"
+      ];
+      if (!origin || allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true, // Allows sending cookies if needed
   })
 );
