@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 require("dotenv").config();
+const dns = require("dns");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 9000;
@@ -9,7 +11,12 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://solo-shaper.web.app",
+    origin: [
+      "https://solo-shaper.web.app",
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "http://localhost:5175"
+    ],
     credentials: true, // Allows sending cookies if needed
   })
 );
@@ -29,7 +36,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    const db = client.db("solo-db");
+    const db = client.db();
     const jobCollections = db.collection("jobs");
     const bidsCollections = db.collection("bids");
     //generate cookie
@@ -66,7 +73,7 @@ async function run() {
 
 
     //verify token
-    
+
 
     //save job data
     app.post("/add-job", async (req, res) => {
