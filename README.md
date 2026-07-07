@@ -1,6 +1,6 @@
 # SoloSphere (Job Circular Application)
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-solo--shaper.web.app-brightgreen?style=for-the-badge)](https://solo-shaper.web.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-solo--sphere--eta.vercel.app-brightgreen?style=for-the-badge)](https://solo-sphere-eta.vercel.app/)
 
 SoloSphere is a modern, responsive job circular and bidding platform. It allows clients (buyers) to post jobs across various categories (Web Development, Graphics Design, and Digital Marketing) and enables freelancers to bid on these jobs.
 
